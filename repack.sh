@@ -37,12 +37,12 @@ function git_upload {
 
 function suck_files {
 	echo "### dumping mysql"
-	for i in `mysql --execute="SHOW Databases" --skip-column-names -s` 
+	for i in `mysql -uroot -p`cat mysql.root.password` --execute="SHOW Databases " --skip-column-names -s`
 	do 
-		mysqldump $i > $files_tmp/${i}.sql 
+		mysqldump -uroot -p`cat /etc/mysql/mysql.root.passwd` $i > $files_tmp/${i}.sql
 	done
 
-
+	
     for var in "${working_dirs[@]}"
     do
         if [[ -d ${var} ]]
