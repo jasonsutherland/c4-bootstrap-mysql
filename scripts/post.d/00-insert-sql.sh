@@ -7,6 +7,6 @@ for i in `ls /var/tmp/*.sql` ; do
     if [ -f ${i} ]
     then
     echo "### inserting sql ###"
-       cat $i |mysql 
+       cat $i |mysql -uroot -p `cat /root/mysql.root.passwd`
     fi ;
 done

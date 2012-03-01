@@ -18,7 +18,7 @@ else
         # Store the password for later use by the db-relation-changed hook for
         # this service unit. As a general note, for data that service units do
         # not need to share, simply use the machine's local file store.
-        sudo echo $password > /etc/mysql/mysql.root.passwd
+        sudo echo $password > /root/mysql.root.passwd
 
         echo mysql-server-5.1 mysql-server/root_password password $password | debconf-set-selections
         echo mysql-server-5.1 mysql-server/root_password_again password $password | debconf-set-selections
