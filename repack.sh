@@ -1,11 +1,11 @@
 #!/bin/bash
 
+user=`sudo grep -m 1 user /etc/mysql/debian.cnf| awk '{ print $3 }'`
 password=`sudo grep -m 1 password /etc/mysql/debian.cnf| awk '{ print $3 }'`
 
 supported_dist="Ubuntu"
 supported_vers="10.04"
 
-working_dirs=( /etc/mysql/ )
 files_tmp="files/var/tmp/c4-bootstrap-mysql"
 timestamp=`date --utc +%s`
 
@@ -38,23 +38,13 @@ function git_upload {
 }
 
 function suck_files {
-	echo "### dumping mysql"
+	echo "### dumping mysql databases:"
 	for i in `mysql -uroot -p${password} --execute="SHOW Databases " --skip-column-names -s`
 	do 
+		echo "dumping: $i"
 		mysqldump -uroot -p${password} $i > $files_tmp/${i}.sql
 	done
 
-	
-    for var in "${working_dirs[@]}"
-    do
-        if [[ -d ${var} ]]
-        then
-            echo "### Pulling in content from ${var} ###"
-                sudo cp -Rfp ${var} ${files_tmp}/${var}
-        else
-            echo "### WARNING: Directory ${var} does not exist! ###"
-        fi
-    done
 }
 
 check_env
