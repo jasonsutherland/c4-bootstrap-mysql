@@ -1,7 +1,9 @@
 #!/bin/bash
 
+password=`sudo grep -m 1 password /etc/mysql/debian.cnf| awk '{ print $3 }'`
+
 supported_dist="Ubuntu"
-supported_vers="12.04"
+supported_vers="10.04"
 
 working_dirs=( /etc/mysql/ )
 files_tmp="files/var/tmp/c4-bootstrap-mysql"
@@ -37,9 +39,9 @@ function git_upload {
 
 function suck_files {
 	echo "### dumping mysql"
-	for i in `mysql -uroot -p`cat mysql.root.password` --execute="SHOW Databases " --skip-column-names -s`
+	for i in `mysql -uroot -p${password} --execute="SHOW Databases " --skip-column-names -s`
 	do 
-		mysqldump -uroot -p`cat /root/mysql.root.passwd` $i > $files_tmp/${i}.sql
+		mysqldump -uroot -p${password} $i > $files_tmp/${i}.sql
 	done
 
 	
