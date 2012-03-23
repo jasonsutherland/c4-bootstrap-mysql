@@ -24,7 +24,7 @@ else
         DEBIAN_FRONTEND=noninteractive apt-get -y install -qq mysql-server
 
         ## Fix mysql password for root
-        mysqladmin -u root password ${password}
+        #mysqladmin -u root password ${password}
         ## Insert passwor dinto conf so you can login as root!
         sed -i "s/\[client\]/\[client\]\npassword        = ${password}/" /etc/mysql/my.cnf
 
