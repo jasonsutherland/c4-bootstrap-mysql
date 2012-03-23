@@ -1,6 +1,6 @@
-#c4-bootstrap-nginx-php
+#c4-bootstrap-mysql
 
-A simple way to deploy a NGINX + PHP5-FPM environment and save your code with version control, using c4-bootstrap lightweight system management tools.
+A simple way to deploy a MySQL environment and backup your DB's with version control, using c4-bootstrap lightweight system management tools.
 
 ##Requirements
 
@@ -37,8 +37,8 @@ You can also rename your fork to represent the project you are working on. If yo
 
 On your new server:
 
-    git clone https://github.com/*<USERNAME>*/c4-bootstrap-nginx-php.git
-    cd c4-bootstrap-nginx-php
+    git clone https://github.com/*<USERNAME>*/c4-bootstrap-mysql.git
+    cd c4-bootstrap-mysql
     sudo ./bootstrap.sh
 
 You'll see lots of text fly past the screen as the system is setup. Once complete it should be fully up and running.
@@ -51,18 +51,18 @@ While developing your site the contents of the site may change frequently. repac
 
 Simply run these commands (remember if you've renamed your rep change these commands):
 
-    cd c4-bootstrap-nginx-php
+    cd c4-bootstrap-mysql
     sudo ./repack.sh
 
 This will create a SiteContent.tgz of your site and push them back to your github repo. It can be used to back up your site or even redeploy your site on a new server using the bootstrap.sh script. I recommend you back up regularly if you frequently add content to your site.
 
-c4-bootstrap-nginx-php is set up to monitor the following directories:
+c4-bootstrap-mysql is set up to monitor the following directories:
 
-    /etc/nginx/
-    /etc/php5/
-    /var/www/
+    /etc/mysql/
 
 Changes in these directories will be pulled back into your git repo when running repack. To add more locations just edit the __scripts/repack/working_dirs__ file.
+
+Your DB's will also be backed up to __files/var/tmp/c4-bootstrap/sql/__ using mysqldump
 
 NB : You should set your github repo to private to avoid exposing your private code and configs to everyone!
 
