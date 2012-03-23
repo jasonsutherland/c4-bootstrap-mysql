@@ -10,3 +10,4 @@ for i in `ls /var/tmp/*.sql` ; do
        cat $i |mysql -u root -p${password}
     fi ;
 done
+## Copy conf with generated password back over local modifications
