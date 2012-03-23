@@ -27,6 +27,7 @@ else
         #mysqladmin -u root password ${password}
         ## Insert passwor dinto conf so you can login as root!
         sed -i "s/\[client\]/\[client\]\npassword        = ${password}/" /etc/mysql/my.cnf
+	cp /etc/mysql/my.cnf /etc/mysql/my.cnf.bootstrap
 
 fi
 
