@@ -54,7 +54,7 @@ Simply run these commands (remember if you've renamed your rep change these comm
     cd c4-bootstrap-mysql
     sudo ./repack.sh
 
-This will create a SiteContent.tgz of your site and push them back to your github repo. It can be used to back up your site or even redeploy your site on a new server using the bootstrap.sh script. I recommend you back up regularly if you frequently add content to your site.
+This script will back up your databases using mysql dump whilst maintaining settings from MySQL, it also uploads these settings to your github repo allowing you to restore everything using bootstrap ona  fresh server.
 
 c4-bootstrap-mysql is set up to monitor the following directories:
 
@@ -62,7 +62,7 @@ c4-bootstrap-mysql is set up to monitor the following directories:
 
 Changes in these directories will be pulled back into your git repo when running repack. To add more locations just edit the __scripts/repack/working_dirs__ file.
 
-Your DB's will also be backed up to __files/var/tmp/c4-bootstrap/sql/__ using mysqldump
+Your DB's will also be backed up to __files/var/tmp/c4-bootstrap/sql/__ using mysqldump.
 
 NB : You should set your github repo to private to avoid exposing your private code and configs to everyone!
 
