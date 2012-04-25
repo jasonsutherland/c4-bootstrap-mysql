@@ -22,7 +22,7 @@ These standard toolkits should also be present on the system:
 
 ## How To: Bootstrap
 
-Bootstraping your server will install the requested environment on your sysetm.
+Bootstrapping your server will install the requested environment on your system.
 
 Fire up your Ubuntu server or Ubuntu AMI EC2 instance. These scripts are designed to work on Ubuntu 10.04 LTS. Please see c4-bootstrap documentation for further information on compatibility and the deployment framework in general.
 
