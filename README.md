@@ -43,11 +43,6 @@ On the server CLI:
 
 There should be considerable output on screen. Once the script has finished, the system should be fully up and running.
 
-If you have never run repack.sh before (see c4-bootstrap documentation, link at end), when you browse to your URL/IP you will see a 403 access denied error browser side. 
-
-If you have been using repack.sh to track your changes in github then your site will be fully restored and running when you browse to your URL/IP.
-
-
 ## How To: Repack (repack.sh)
 
 While developing your site the contents of the site may change frequently. repack.sh is designed to help track these changes in github. This will allow a rebuild of the server to a given point in time. It is good practice to use repack.sh regularly to avoid loss of work, especially if you frequently add content to your site.
